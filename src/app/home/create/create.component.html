@@ -1,0 +1,216 @@
+<div id="contenerdorCentrador">
+    <img src="../../assets/image/liverpool.jpg" id="logo" alt="">
+</div>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+
+<nav class="navbar bg-body-tertiary bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./index">SSP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SSP</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index">Home</a>
+          </li>
+        <!--  <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            STATUS
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item">Todos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Pendiente</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Proceso</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Finalizado</a></li>
+          </ul>
+        </li> -->
+        </ul>
+       <!-- <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+        <div class="" style="position: fixed;  bottom: 0px;">
+            <button (click)="logOut()" class="btn btn-danger">Cerrar Sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<br>
+
+
+<div class="contianer">
+  <form class="container" (ngSubmit)="submitForm()">
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Activo:</label>
+      <div class="col-sm-5">
+        <select class="form-select" [(ngModel)]="activo" name="activo">
+        <option value="SI">SI</option>
+        <option value="">NO</option>
+      </select>
+      </div>
+ 
+      <label for="" class="col-sm-2 col-form-label fw-bold">Titulo:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="titulo" name="titulo">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Descripción:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" [(ngModel)]="descripcion" name="descripcion">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Estatus:</label>
+      <div class="col-md-6 bg-dark" data-bs-theme="dark">
+      <select class="form-select" [(ngModel)]="status" name="status">
+        <option value="Pendiente">Pendiente</option>
+        <option value="Proceso">Proceso</option>
+        <option value="Finalizado">Finalizado</option>
+      </select>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Asunto Correo:</label>
+        <input type="text" class="form-control" [(ngModel)]="asunto" name="asunto">
+      </div>
+
+      <br>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="form-label fw-bold">Negocio:</label>
+        <input type="text" class="form-control"[(ngModel)]="negocio" name="negocio">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label fw-bold">Solicitante:</label>
+        <input type="text" class="form-control" [(ngModel)]="solicitante" name="solicitante">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label fw-bold">Centro de Competencias:</label>
+        <input type="text" class="form-control" [(ngModel)]="CCoE" name="CCoE">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Sistema:</label>
+        <div class="col-md-6 bg-dark" data-bs-theme="dark">
+      <select class="form-select" [(ngModel)]="sistema" name="sistema">
+        <option value="ECC">ECC</option>
+        <option value="S4HANA">S4HANA</option>
+        <option value="ECC/S4HANA">Ambos</option>
+      </select>
+      </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Ambiente:</label>
+        <div class="col-md-6 bg-dark" data-bs-theme="dark">
+      <select class="form-select" [(ngModel)]="ambiente" name="ambiente">
+        <option value="DESARROLLO">DESARROLLO</option>
+        <option value="CALIDAD">CALIDAD</option>
+        <option value="PRODUCTIVO">PRODUCTIVO</option>
+      </select>
+      </div>
+      </div>
+      
+    </div>
+
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Transacciones:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" [(ngModel)]="txns" name="txns">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Programas:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" [(ngModel)]="programas" name="programas">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Funciones:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" [(ngModel)]="funciones" name="funciones">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Tablas:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" [(ngModel)]="tablas" name="tablas">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Jobs:</label>
+      <div class="col-sm-10">
+        <input type="text"  class="form-control" [(ngModel)]="jobs" name="jobs">
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="col-sm-2 col-form-label fw-bold">Comentarios:</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="comentarios" name="comentarios"></textarea>
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Asignado por:</label>
+      <div class="col-md-6 bg-dark" data-bs-theme="dark">
+      <select class="form-select" [(ngModel)]="asignado_por" name="asignado_por">
+        <option value="Rogelio">Rogelio</option>
+        <option value="Rodrigo">Rodrigo</option>
+        <option value="Cecilia">Cecilia</option>
+        <option value="Javier">Javier</option>
+      </select>
+      </div>
+      
+      <br>
+
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label class="form-label fw-bold">Fecha de Inicio:</label>
+        <input type="date" class="form-control" [(ngModel)]="fecha_inicio" name="fecha_inicio">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label fw-bold">Fecha de Liberación:</label>
+        <input type="date" class="form-control" [(ngModel)]="fecha_liberacion" name="fecha_liberacion">
+      </div>
+      <div class="col-md-2">
+        <label class="form-label fw-bold">Estimación:</label>
+        <input type="number" class="form-control" [(ngModel)]="estimacion" name="estimacion">
+      </div>
+    </div>
+
+    <div class="mb-4 row">
+      <label for="" class="col-sm-2 col-form-label fw-bold">Orden de Transporte:</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" [(ngModel)]="ot" name="ot">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Cambio:</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" [(ngModel)]="crq" name="crq">
+      </div>
+
+      <label for="" class="col-sm-6 col-form-label fw-bold">Documentación generada:</label>
+      <div class="">
+        <input type="url" class="form-control" [(ngModel)]="documentacion" name="documentacion">
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div class="container fixed-bottom mb-3">
+        <button class="btn btn-success">Guardar</button>
+    </div>
+
+  </form>
+</div>

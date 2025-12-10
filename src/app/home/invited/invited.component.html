@@ -1,0 +1,92 @@
+<div id="contenerdorCentrador">
+    <img src="../../assets/image/liverpool.jpg" id="logo" alt="">
+</div>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+
+<nav class="navbar bg-body-tertiary bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">SSP - </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SSP</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/create">Nuevo Registro</a>
+        </li>
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            STATUS
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item">Todos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Pendiente</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Proceso</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Finalizado</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Activo</a></li>
+          </ul>
+        </li> -->
+        </ul>
+       <!-- <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+        <div class="" style="position: fixed;  bottom: 0px;">
+            <button type="submit" (click)="logOut()" class="btn btn-danger">Cerrar Sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<br>
+
+<div class="table-responsive">
+<table class="table" style="padding-bottom: 10%;">
+  <thead class="table-warning table-striped table-group-divider">
+    <tr>
+      <th scope="col">USUARIO</th>
+      <th scope="col">ACTIVO</th>
+      <th scope="col">Status</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Asunto Correo</th>
+      <th scope="col">TXN</th>
+      <th scope="col">Ambiente</th>
+      <th scope="col">Estimación</th>
+      <th scope="col">Fecha Liberación</th>
+      <th scope="col">CRQ</th>
+      <th scope="col">DETALLES</th>
+    </tr>
+  </thead>
+  <tbody  class="table-group-divider">
+    <tr *ngFor="let item of tareasConUsuario; let i = index" class="table table-striped">
+      <th scope="row">{{item.usuario}}</th>
+      <td>{{item.activo}}</td>
+      <td>{{item.status}}</td>
+      <td>{{item.titulo}}</td>
+      <td>{{item.asunto}}</td>
+      <td>{{item.txns}}</td>
+      <td>{{item.ambiente}}</td>
+      <td>{{item?.estimacion || '0'}} dias</td>
+      <td>{{item.fecha_liberacion}}</td>
+      <td>{{item.crq}}</td>
+      <td><button (click)="detail(item._id)" class="btn btn-outline-primary">Detalles</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

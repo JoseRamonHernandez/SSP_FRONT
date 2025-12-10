@@ -1,0 +1,51 @@
+
+
+    <div id="contenerdorCentrador">
+                <img src="../../assets/image/liverpool.jpg" id="logo" alt="">
+        </div>
+ 
+        <div id="div1"></div>
+        <div id="div2"></div>
+    
+        <br>
+    
+        <div class="contenerdorCentrador" style="padding-top: 2%;">
+    <div class="container" style="display: flex;align-items: center;justify-content: center; padding-bottom: 5%;">
+    <div id="contenedorcentrado">
+        <div id="login">
+            <form id="loginform" (ngSubmit)="login()" #loginForm="ngForm">
+                <img id="contenerdorCentrador" src="../../../assets/image/Business_trip.jpg" height="100%" width="100%">
+                <div class="input-group mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                    <input type="text" name="user" [(ngModel)]="user" class="form-control" placeholder="Username" aria-label="Username" required />
+                    <label for="exampleInputEmail1" class="form-label">Contraseña</label>
+                    <input type="password" name="pass" [(ngModel)]="pass" class="form-control" aria-label="Server" required />
+                </div>
+            <button type="submit" class="google-button">
+                <span class="google-button-text">Iniciar sesión</span>
+            </button>
+        </form>
+        </div>
+
+        <div id="derecho">
+            <div class="titulo">
+                <a  style="text-decoration: none; color: #6e0f6a;"><h1>Control Pendientes</h1></a>
+                <img src="../../../assets/image/logo_panel.png" id="logoPanel" alt="Logo Liverpool">
+                <hr>
+                <a  style="text-decoration: none; color: #6e0f6a;"> Bienvenido </a>
+
+                <div class="row mb-2">
+                <div class="col-md-6">
+                <button type="sumbit" (click)="register()" class="btn btn-outline-info">Crear Usuario</button>
+                </div>
+                <div class="col-md-6">
+                <button type="submit" (click)="signIn()" class="btn btn-outline-dark">Modo Invitado</button>
+                </div>
+                </div>
+                
+        
+            </div>
+        </div>
+    </div>
+</div>
+</div>

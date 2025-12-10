@@ -1,0 +1,191 @@
+<div id="contenerdorCentrador">
+    <img src="../../assets/image/liverpool.jpg" id="logo" alt="">
+</div>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+
+<nav class="navbar bg-body-tertiary bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./index">SSP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">SSP</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/create">Nuevo Registro</a>
+        </li>
+        <!--  <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            STATUS
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item">Todos</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Pendiente</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Proceso</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item">Finalizado</a></li>
+          </ul>
+        </li> -->
+        </ul>
+       <!-- <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+        <div class="" style="position: fixed;  bottom: 0px;">
+            <button (click)="logOut()" class="btn btn-danger">Cerrar Sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<br>
+
+<div class="container mb-3 text-end">
+   <button (click)="delete()" class="btn btn-danger">Eliminar Tarea</button>
+</div>
+
+<br>
+
+<div class="contianer">
+  <form class="container" *ngFor="let item of responseArray; let i = index">
+    <div class="mb-3 row">
+      <label for="" class="col-sm-2 col-form-label fw-bold">Titulo:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.titulo  || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Descripción:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.descripcion  || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Estatus:</label>
+      <div class="col-md-6">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.status || ''">
+      </div>
+
+      <div class="col-md-6" style="border: 5%; background-color: beige;">
+        <label class="form-label fw-bold">Asunto Correo:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.asunto || ''">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label class="form-label fw-bold">Negocio:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.negocio || ''">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label fw-bold">Solicitante:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.solicitante || ''">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label fw-bold">Centro de Competencias:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.CCoE || ''">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Sistema:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.sistema || ''">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label fw-bold">Ambiente:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.ambiente || ''">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="" class="col-sm-2 col-form-label fw-bold">Transacciones:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.txns || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Programas:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.programas || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Funciones:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.funciones || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Tablas:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.tablas || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Jobs:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.jobs || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Comentarios:</label>
+      <div class="col-sm-10">
+        <input type="text-tarea" readonly class="form-control-plaintext" [value]="item?.comentarios || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Asignado por:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.asignado_por || ''">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label class="form-label fw-bold">Fecha de Inicio:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.fecha_inicio || '--/--/----'">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label fw-bold">Fecha de Liberación:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.fecha_liberacion || '--/--/----'">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label fw-bold">Estimación:</label>
+        <input type="text" class="form-control form-control-plaintext" readonly [value]="item?.estimacion || ''">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="" class="col-sm-2 col-form-label fw-bold">Orden de Transporte:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.ot || ''">
+      </div>
+
+      <label for="" class="col-sm-2 col-form-label fw-bold">Cambio:</label>
+      <div class="col-sm-10">
+        <input type="text" readonly class="form-control-plaintext" [value]="item?.crq || ''">
+      </div>
+
+      <label for="website" class="col-sm-6 col-form-label fw-bold">Documentación generada:</label>
+      <div class="">
+        <input type="url" readonly class="form-control-plaintext" [value]="item?.documentacion || ''">
+        <input type="text" readonly class="form-control-plaintext">
+        <input type="text" readonly class="form-control-plaintext">
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<br>
+
+<div class="fixed-bottom text-center mb-3">
+   <button (click)="update()" class="btn btn-outline-warning">Editar</button>
+</div>

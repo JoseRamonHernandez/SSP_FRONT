@@ -1,0 +1,53 @@
+<div id="contenerdorCentrador">
+    <img src="../../assets/image/liverpool.jpg" id="logo" alt="">
+</div>
+
+<div id="div1"></div>
+<div id="div2"></div>
+
+
+<nav class="navbar bg-body-tertiary bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./login">SSP</a>
+  </div>
+</nav>
+
+
+<div class="" style="padding-top: 2%;">
+    <div class="container" style="display: flex;align-items: center;justify-content: center; padding-bottom: 5%;">
+    <div id="contenedorcentrado">
+        <div class="container">
+            <form id="" (ngSubmit)="create()" #loginForm="">
+                <div class="row mb-2">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Usuario:</label>
+                        <input type="text" class="form-control" placeholder="Nickname" [(ngModel)]="nickname" name="nickname" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Contraseña:</label>
+                        <input type="password" class="form-control" placeholder="*******" [(ngModel)]="password"  name="password" required>
+                    </div>
+                    </div>
+
+                    <label for="" class="col-sm-2 col-form-label fw-bold">Nombre:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" placeholder="Name" [(ngModel)]="name" name="name" required>
+                    </div>
+
+                    <label for="" class="col-sm-2 col-form-label fw-bold">Apellido:</label>
+                    <div class="col-sm-10">
+                        <input type="text"  class="form-control" placeholder="LastName" [(ngModel)]="lastname" name="lastname" required>
+                    </div>
+
+                <br>
+                <button type="submit" class="google-button">
+                                <span class="google-button-text">Crear Cuenta</span>
+                </button>
+
+                
+            
+        </form>
+        </div>
+    </div>
+</div>
+</div>
