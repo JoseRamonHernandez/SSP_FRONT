@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit{
             {
               localStorage.setItem('userId', data._id);
               localStorage.setItem('userNickname', data.nickname);
-              this.router.navigate(['index'])
+              this.router.navigate(['indexHome']);
             }
           })
         }
@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit{
   }
 
   register(){
-    this.router.navigate(['register'])
+    this.router.navigate(['register']);
   }
 
   signIn(){

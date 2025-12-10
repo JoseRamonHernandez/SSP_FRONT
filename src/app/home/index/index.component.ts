@@ -39,6 +39,7 @@ interface taskData{
 })
 export class IndexComponent implements OnInit {
 
+
   userId: string | null = null;
   userNickname: string | null = null;
   url: any;
@@ -100,5 +101,6 @@ export class IndexComponent implements OnInit {
     localStorage.setItem('taskId', idTask);
     this.router.navigate(['details']);
   }
+
 
 }

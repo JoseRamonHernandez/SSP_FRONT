@@ -5,6 +5,14 @@ import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/service/service.service';
 import Swal from 'sweetalert2';
 
+interface userBody{
+  _id:      string;
+  nickname: string;
+  password: string;
+  name:     string;
+  lastname: string;
+}
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,10 +20,10 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent implements OnInit {
 
-  nickname: string = '';
-  password: string = '';
-  name:     string = '';
-  lastname: string = '';
+  nickname: string | null = null;
+  password: string | null = null;
+  name:     string | null = null;
+  lastname: string | null = null;
 
   bodyRegister: any = {};
 
@@ -52,9 +60,13 @@ export class RegisterComponent implements OnInit {
         lastname: this.lastname
       }
 
-      
+      console.log(this.bodyRegister);
 
-     this.http.post(this.url+'User', this.bodyRegister).subscribe( res => {
+      this.http.get<userBody>(this.url+'User/name/' + this.nickname).subscribe(data => {
+        console.log(data);
+        if(!data){
+          this.http.post(this.url+'User', this.bodyRegister).subscribe( res => {
+            console.log(res);
           Swal.fire({
                 icon:"success",
                 title:"Usuario Creado correctamente",
@@ -70,6 +82,21 @@ export class RegisterComponent implements OnInit {
               });
             
         });
+
+        return;
+
+        }
+
+        if(data.nickname === this.nickname){
+          Swal.fire({
+            icon: 'info',
+            text: 'Usuario ya existente'
+          });
+        }
+
+      });
+
+     
     }
   }
 }
