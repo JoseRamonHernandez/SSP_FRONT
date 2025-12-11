@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit{
 
     let timerInterval=0;
 
-    if(this.user === '' || this.pass === ''){
+    if(this.user === '' || this.pass === '' || !this.user || !this.pass){
       Swal.fire({
         icon: 'warning',
         title: 'Advertencia!',
@@ -55,6 +55,15 @@ export class LoginComponent implements OnInit{
      // console.log('Contraseña: ', this.pass);
 
       this.http.get<userData>(this.url+'User/name/'+this.user).subscribe(data => {
+        if(!data){
+          Swal.fire({
+            icon: 'error',
+            title: 'Acceso denegado',
+            text: 'Usuario o Contraseña incorrectos!'
+          });
+
+          return;
+        }
         if(this.pass === data.password){
           Swal.fire({
             icon: 'success',

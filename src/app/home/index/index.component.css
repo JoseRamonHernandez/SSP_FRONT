@@ -66,6 +66,104 @@ body {
     background-color: #e86513;
 }
 
+table tbody td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.one-line {
+  white-space: nowrap;        /* NO permite salto de línea */
+  overflow: hidden;           /* Oculta el texto sobrante */
+  text-overflow: ellipsis;    /* Pone "..." cuando se corta */
+  max-width: 250px;           /* Ajusta según tu preferencia */
+}
+
+
+.ambiente-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  min-width: 160px;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: black;
+  background: white;
+
+  /* Sombra de profundidad */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+  /* Borde degradado */
+  border: 3px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Animación al pasar el mouse */
+.ambiente-pill:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Degradado por ambiente */
+.amb-prod {
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(90deg, #2bf72b, #0f9b0f);
+}
+
+.amb-calidad {
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(90deg, #ffa600, #ffcb57);
+}
+
+.amb-dev {
+  background-image:
+    linear-gradient(white, white),
+    linear-gradient(90deg, #0096ff, #6bc6ff);
+}
+
+.ambiente-icon {
+  font-size: 1.1rem;
+}
+
+
+/* Glow animado */
+@keyframes rowGlow {
+  0% {
+    box-shadow: 0 0 0px rgba(0, 200, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(0, 200, 255, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(0, 200, 255, 0);
+  }
+}
+
+/* Fila normal */
+.table-hover-row {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Efecto al pasar cursor */
+.table-hover-row:hover {
+  background-color: #f7faff !important;
+  transform: translateY(-2px);
+
+  /* Activamos animación glow */
+  animation: rowGlow 1.3s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+
+
 
 .google-button {
     display: inline-flex;

@@ -57,13 +57,13 @@
 <br>
 
 <div class="table-responsive">
-<table class="table" style="padding-bottom: 10%;">
-  <thead class="table-warning table-striped table-group-divider">
+<table class="table table-striped" style="padding-bottom: 10%;">
+  <thead class="table-warning table-group-divider">
     <tr>
       <th scope="col">ACTIVO</th>
       <th scope="col">Status</th>
       <th scope="col">Titulo</th>
-      <th scope="col">Asunto Correo</th>
+     <!-- <th scope="col">Asunto Correo</th> -->
       <th scope="col">TXN</th>
       <th scope="col">Ambiente</th>
       <th scope="col">Estimación</th>
@@ -72,18 +72,35 @@
       <th scope="col">DETALLES</th>
     </tr>
   </thead>
-  <tbody  class="table-group-divider">
-    <tr *ngFor="let item of responseArray; let i = index" class="table table-striped">
-      <th scope="row">{{item.activo}}</th>
-      <th scope="row">{{item.status}}</th>
-      <td>{{item.titulo}}</td>
-      <td>{{item.asunto}}</td>
-      <td>{{item.txns}}</td>
-      <td>{{item.ambiente}}</td>
-      <td>{{item?.estimacion || '0'}} dias</td>
-      <td>{{item.fecha_liberacion}}</td>
-      <td>{{item.crq}}</td>
-      <td><button (click)="detail(item._id)" class="btn btn-outline-primary">Detalles</button></td>
+
+  <tbody class="table-group-divider">
+    <tr *ngFor="let item of responseArray; let i = index" class="table-hover-row">
+      <td class="one-line">{{item.activo}}</td>
+      <td class="one-line"><strong>{{item.status}}</strong></td>
+      <td class="one-line">{{item.titulo}}</td>
+     <!-- <td>{{item.asunto}}</td>-->
+      <td class="one-line">{{item.txns}}</td>
+      <td><span class="ambiente-pill"[ngStyle]="{'background-color': item.ambiente === 'PRODUCTIVO' ? '#5dfa5d' :
+                                                                      item.ambiente === 'CALIDAD' ? '#ff9d00' :
+                                                                      item.ambiente === 'DESARROLLO' ? '#4cb3ff' :
+                                                                                                        'gray',
+                'color': item.ambiente === 'CALIDAD' ? 'black' : 'black'}">
+          <span class="ambiente-icon">
+            {{ 
+              item.ambiente === 'PRODUCTIVO' ? '✔️' :
+              item.ambiente === 'CALIDAD' ? '🧪' :
+              item.ambiente === 'DESARROLLO' ? '🛠️' : '❓'
+            }}
+          </span>{{ item.ambiente }}</span></td>
+      <td class="one-line">{{item?.estimacion || '0'}} días</td>
+      <td class="one-line">{{item.fecha_liberacion}}</td>
+      <td class="one-line">{{item.crq}}</td>
+
+      <td>
+        <button (click)="detail(item._id)" class="btn btn-outline-primary">
+          Detalles
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
